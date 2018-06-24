@@ -42,7 +42,10 @@ const StyledAuthor = styled(Label)`
 `
 
 const StyledTextInput = styled(TextInput)`
-  width: 100%;
+  width: 80%;
+  position: fixed;
+  bottom: 1.5vh;
+  background-color: rgba(255,255,255,.9);
 `
 
 const AddChannelButton = styled(Button)`
@@ -111,7 +114,11 @@ const ChatRoom = ({ url, url: { query: { channel = 'general' } } }) => (
                   <MessagesContainer channel={ channels.find(({ name }) => name === channel) }>
                     { ({ loading, refetch, messages }) => (
                       <Box full='vertical'>
-                        <StyledRoomHeader pad={ { vertical: 'small', horizontal: 'medium' } } justify='between'>
+                        <StyledRoomHeader
+                          pad={ { vertical: 'small', horizontal: 'medium' } }
+                          justify='between'
+                          fixed
+                        >
                           <Title>
                             { '#' + channel }
                           </Title>
