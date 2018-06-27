@@ -16,7 +16,8 @@ const isNotEmail = value => !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(va
 /*
  * Validation rules.
  */
-
+export const fieldValitation = value =>
+  !/^[a-z0-9_+]+$/g.test(value) && 'Only numbers, lowercase letters with no accents, and underscore are allowed.'
 export const nil = () => undefined
 export const required = value => isEmpty(value) && 'Required'
 // export const url = value => every([isNotEmpty, isNotURL])(value) && 'Invalid URL'
