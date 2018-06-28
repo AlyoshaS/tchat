@@ -27,7 +27,7 @@ const mutation = gql`
 // @TODO: implement optimistic query on messages?
 
 const NewMessageContainer = ({ children, user, channel }) => (
-  <Mutation mutation={ mutation } refetchQueries={ ['Messages'] }>
+  <Mutation mutation={ mutation } refetchQueries={ ['Messages'] } pollInterval={ 500 }>
     { send => (
       <Form
         children={ children }
