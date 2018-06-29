@@ -42,7 +42,7 @@ const StyledAuthor = styled(Label)`
 `
 
 const StyledTextInput = styled(TextInput)`
-  width: 80%;
+  width: 70%;
   position: fixed;
   bottom: 1.5vh;
   background-color: rgba(255,255,255,.9);
