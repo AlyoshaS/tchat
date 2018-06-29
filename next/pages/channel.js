@@ -79,9 +79,16 @@ const ChatRoom = ({ url, url: { query: { channel = 'general' } } }) => (
                       { create => (
                         <AddChannelButton
                           icon={ <AddCircleIcon /> }
-                          onClick={ () => create(
-                            window.prompt('Name your new channel')
-                          ) }
+                          onClick={
+                            () => {
+                              let name = window.prompt('Name your new channel')
+                              let validation = (arg) => /^[a-z0-9_+]+$/g.test(arg)
+                              name &&
+                              (validation(name))
+                                ? create(name)
+                                : window.alert('Only numbers, lowercase letters with no accents, and underscore are allowed.')
+                            }
+                          }
                         />
                       ) }
                     </NewChannelContainer>
