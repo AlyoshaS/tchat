@@ -41,6 +41,12 @@ const StyledAuthor = styled(Label)`
   margin: 0;
 `
 
+const StyledBoxInput = styled(Box)`
+  position: sticky;
+  bottom: 0;
+  background-color: rgba(255,255,255,.9);
+`
+
 const StyledTextInput = styled(TextInput)`
   width: 100%;
 `
@@ -111,7 +117,7 @@ const ChatRoom = ({ url, url: { query: { channel = 'general' } } }) => (
                   <MessagesContainer channel={ channels.find(({ name }) => name === channel) }>
                     { ({ loading, refetch, messages }) => (
                       <Box full='vertical'>
-                        <StyledRoomHeader pad={ { vertical: 'small', horizontal: 'medium' } } justify='between'>
+                        <StyledRoomHeader pad={ { vertical: 'small', horizontal: 'medium' } } justify='between' fixed>
                           <Title>
                             { '#' + channel }
                           </Title>
@@ -132,7 +138,7 @@ const ChatRoom = ({ url, url: { query: { channel = 'general' } } }) => (
                           ) }
                         </Box>
 
-                        <Box pad='medium' direction='column'>
+                        <StyledBoxInput pad='medium' direction='column'>
                           { user && user.uid ? (
                             <NewMessageContainer
                               user={ user }
@@ -150,7 +156,7 @@ const ChatRoom = ({ url, url: { query: { channel = 'general' } } }) => (
                           ) : (
                             'Log in to post messages'
                           ) }
-                        </Box>
+                        </StyledBoxInput>
                       </Box>
                     ) }
                   </MessagesContainer>
